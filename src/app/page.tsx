@@ -9,14 +9,8 @@ export default function Home() {
   const [kodam, setKodam] = useState('');
   const [isKodamGenerated, setIsKodamGenerated] = useState(false);
 
-  const animals = [
+  const kodamList = [
     'Harimau', 'Elang', 'Singa', 'Serigala', 'Kucing', 'Kuda', 'Gajah', 'Panda',
-    'Ular', 'Burung Hantu', 'Serigala Putih', 'Lumba-lumba', 'Hiu', 'Kelinci', 'Kura-kura', 'Rusa',
-    'Bison', 'Beruang', 'Merak', 'Rajawali', 'Buaya', 'Kerbau', 'Katak', 'Monyet',
-    'Ikan Paus', 'Badak', 'Musang', 'Tikus', 'Bebek', 'Angsa', 'Anjing Laut', 'Kanguru',
-    'Koala', 'Kumbang', 'Capung', 'Lebah', 'Semut', 'Laba-laba', 'Kecoa', 'Kelelawar',
-    'Bunglon', 'Iguana', 'Salamander', 'Beruang Kutub', 'Pinguin', 'Jaguar', 'Leopard', 'Gepard',
-    'Zebu', 'Zebra', 'Harimau', 'Elang', 'Singa', 'Serigala', 'Kucing', 'Kuda', 'Gajah', 'Panda',
     'Ular', 'Burung Hantu', 'Serigala Putih', 'Lumba-lumba', 'Hiu', 'Kelinci', 'Kura-kura', 'Rusa',
     'Bison', 'Beruang', 'Merak', 'Rajawali', 'Buaya', 'Kerbau', 'Katak', 'Monyet',
     'Ikan Paus', 'Badak', 'Musang', 'Tikus', 'Bebek', 'Angsa', 'Anjing Laut', 'Kanguru',
@@ -28,8 +22,8 @@ export default function Home() {
   const handleCheckKodam = () => {
     if (!isKodamGenerated) {
       if (name) {
-        const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
-        setKodam(randomAnimal);
+        const randomKodam = kodamList[Math.floor(Math.random() * kodamList.length)];
+        setKodam(randomKodam);
         setIsKodamGenerated(true);
       } else {
         alert('Masukkan nama kamu terlebih dahulu!');
@@ -65,6 +59,7 @@ export default function Home() {
             )}
             {isKodamGenerated && (
               <div className="mt-4 p-4 gap-4">
+                <p>Nama Kamu: <strong>{name}</strong></p>
                 <p>Kodam Kamu Adalah :</p>
                 <p className='text-4xl'><strong>{kodam}</strong></p>
               </div>
@@ -76,10 +71,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      <div className='fixed bottom-0'>
-
-      <Footer/>
-      </div>
+        <div className='fixed bottom-0'>
+          <Footer />
+        </div>
       </div>
     </div>
   );
